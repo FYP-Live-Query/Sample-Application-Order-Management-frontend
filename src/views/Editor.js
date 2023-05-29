@@ -38,16 +38,62 @@ function QueryEditor() {
         
         const parsedData = JSON.parse(event.data);
         console.log(parsedData);
-
+        // data.push(parsedData)
+        // arr.push(parsedData);
         setData(parsedData);
+        // console.log(parsedData);
 
+        // const time = document.getElementById('time');
+        // time.innerHTML = "Time: " + "<br>" + parsedData[1];
+
+        // const results = document.getElementById('results');
+        // results.innerHTML = "Data: " + "<br>" + parsedData[0];
 
         const divElement = document.getElementById('paragraph');
         
+        // const newData = JSON.parse(parsedData[0]);
+        // // console.log("New: ", newData.time);
+        // prevData = JSON.stringify(prevData) === JSON.stringify({ip: '', date: '', browser: '', traffic: 0}) ? newData : prevData;
+        // prevData = JSON.stringify(newData) === JSON.stringify(prevData) ? newData : prevData;
 
+
+
+        // divElement.innerHTML += `<div id="whole" style="display: flex">` +
+        // `<div id="time" style="flex: 1; margin-left: 52px; color: ${newData == prevData ? 'tomato' : 'blue'};"> Time: <br> ${parsedData[1].substring(0,8)} </div><br><br>` +
+        // `<div id="ip" style="flex: 2; color: ${newData.ip == prevData.ip ? 'tomato' : 'blue'};">` + "IP Address: " + "<br>" + newData.ip + `</div>` +
+        // `<div id="results" style="flex: 2; color: ${newData.date == prevData.date ? 'tomato' : 'blue'};">` + "Date: " + "<br>" + newData.date + '</div>' +
+        // `<div id="browser" style="flex: 2; color: ${newData.browser == prevData.browser ? 'tomato' : 'blue'};">` + "Browsers: " + "<br>" + newData.browser + `</div>` +
+        // `<div id="traffic" style="flex: 2; color: ${newData.traffic == prevData.traffic ? 'tomato' : 'blue'};"> Traffic: <br> ${newData.traffic} </div>` +
+        // `</div>`;
         divElement.innerHTML += parsedData;
         divElement.innerHTML += "<hr><br><br>" ;
         
+        // prevData = newData;
+
+
+        // let traffic = document.getElementById('traffic');
+        // if (newData.traffic == prevData.traffic) {          
+        //   traffic.style.color = 'blue';
+        // } 
+
+        // const time = document.getElementById('time');
+
+        // time.style.flex = '1';
+
+        // const results = document.getElementById('results');
+        // results.style.flex = '2';
+
+
+        // const info = document.getElementById('data');
+        // info.innerHTML += parsedData.slice(0,5) + "<br>";        
+        // div.textContent = event.data;
+        // const parsedData = JSON.parse(event.data);
+        // const finalData = getRealtimeData(parsedData);
+        // console.log(finalData);
+
+        // if (isMounted) {
+          // setData(event.data);
+        // }
       },
       onclose() {
         console.log("Connection closed by the server");
@@ -60,6 +106,9 @@ function QueryEditor() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    // // fetchData();
+    // console.log(event.target.apiKey.value);
+    // fetchData(event.target.apiKey.value);
   }
 
     return (
@@ -67,6 +116,22 @@ function QueryEditor() {
       <Box id='header' bgcolor={'#000000'} color={'white'} w='100%' p={4} textAlign={"center"} fontFamily="Roboto" letterSpacing="30px" fontSize={42}>
         QUERY EDITOR
       </Box>
+      <form onSubmit={handleSubmit}>
+        <TextField id="outlined-basic" name="apiKey" type="text" label="QUERY" variant="outlined" 
+                  sx={{
+                    '& > :not(style)': { m: 2, width: '201ch' },
+        }}/>
+        <Box
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', md: 'row' },
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Button type="submit" style={{justifyContent: 'center'}}>Submit</Button>
+        </Box>
+      </form>
     
       <div id='paragraph'>
             {/* <div id="time"></div>
@@ -111,7 +176,13 @@ function QueryEditor() {
           {/* <SimpleUserTable data={data.users} isFetching={data.isFetching} /> */}
       </div>
       </div>
-
+      // <div>
+          
+      //     <Divider orientation="vertical" flexItem>
+      //     <TextField sx={{m:10}} id="outlined-basic" label="Query" varint="outlined" />
+      //     <Button variant="contained">Contained</Button>
+      //     </Divider>
+      // </div>
     );
 
 }

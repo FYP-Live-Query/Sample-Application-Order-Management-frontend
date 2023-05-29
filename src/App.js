@@ -54,6 +54,7 @@ const App = () => {
         <Route path="/" exact component={Main} />
         <Route path="/app" exact component={OrderManagement} />
         <Route path="/editor" exact component={Editor} />
+        <Route path="/profile" component={Profile} />
       </Switch>
     </Router>
   );
