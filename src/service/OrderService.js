@@ -5,7 +5,7 @@ class BrowserService{
 
     postData(){
       return axios.post('http://localhost:8081/orderInfo', {
-        query: 'SELECT browser@string, eventtimestamp@long, initial_data@string FROM networktraffictable LIMIT 4',
+        query: 'select order.orderId@string, item.itemType@string, item.unitPrice@float, order.totalRevenue@float, order.totalCost@float, order.totalProfit@float from item join order on item.itemType@string=order.itemType@string;',
         id: "QWERTY"
       });
 

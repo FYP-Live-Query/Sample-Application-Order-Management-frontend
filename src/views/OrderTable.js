@@ -124,11 +124,11 @@ function DataTable() {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">{row[0]}</TableCell>
-              <TableCell align="right" >{row[2]}</TableCell>
+              <TableCell align="right" >{row[1]}</TableCell>
+              <TableCell align="right">{row[2]}$</TableCell>
               <TableCell align="right">{row[3]}$</TableCell>
               <TableCell align="right">{row[4]}$</TableCell>
               <TableCell align="right">{row[5]}$</TableCell>
-              <TableCell align="right">{row[6]}$</TableCell>
             </TableRow>
           ))}
         </TableBody>
