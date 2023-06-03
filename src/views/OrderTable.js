@@ -19,6 +19,8 @@ function DataTable() {
 
   const [rows, setRows] = useState([]);
   const [allRows, setAllRows] = useState([]);
+  const currentTimeInUTC = new Date().getTime();
+  // console.log("time: ",currentTimeInUTC)
 
   useEffect(() => {
     let isMounted = true;
@@ -93,6 +95,7 @@ function DataTable() {
             <TableCell align="right"><Tooltip title="Total Cost"><div>Total Revenue</div></Tooltip></TableCell>
             <TableCell align="right"><Tooltip title="Total Cost"><div>Total Cost</div></Tooltip></TableCell>
             <TableCell align="right"><Tooltip title="Total Cost"><div>Total Profit</div></Tooltip></TableCell>
+            <TableCell align="right"><Tooltip title="Total Cost"><div>Latency</div></Tooltip></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -104,6 +107,7 @@ function DataTable() {
               <TableCell align="right">{row[4]}$</TableCell>
               <TableCell align="right">{row[5]}$</TableCell>
               <TableCell component="th" scope="row">{row[6]}</TableCell>
+              <TableCell component="th" scope="row">{currentTimeInUTC}</TableCell>
             </TableRow>
           ))}
         </TableBody>
